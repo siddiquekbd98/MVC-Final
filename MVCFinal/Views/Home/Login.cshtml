@@ -1,0 +1,31 @@
+﻿@model MVCFinalpractice.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@{ ViewBag.Title = "Login";
+    Layout = null; }
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+
+    <form action="/Home/Login" method="post">
+        <div>
+            @Html.LabelFor(model => model.Username)
+            @Html.EditorFor(model => model.Username)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password)
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Login" />
+        </div>
+    </form>
+}
